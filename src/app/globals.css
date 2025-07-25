@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 212 40% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 212 40% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 40% 16%;
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 98% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 142 70% 45%;
+    --radius: 0.75rem;
+    --chart-1: 142 70% 45%;
+    --chart-2: 200 98% 56%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 338 85% 65%;
+    --chart-5: 48 96% 53%;
+    --header-height: 70px;
+    --footer-height: 66px;
+    --scrollbar-bg: rgba(255, 255, 255, 0.05);
+    --scrollbar-thumb: rgba(25, 184, 92, 0.5);
+    --scrollbar-thumb-hover: rgba(25, 184, 92, 0.7);
+  }
+
+  .dark {
+    --background: 224 40% 5%;
+    --foreground: 210 20% 98%;
+    --card: 224 40% 10%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 40% 10%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 142 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 98% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 20% 25%;
+    --input: 215 28% 12%;
+    --ring: 142 70% 45%;
+    --chart-1: 142 70% 45%;
+    --chart-2: 200 98% 56%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 338 85% 65%;
+    --chart-5: 48 96% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground dark:bg-[#0A0F1C];
+  }
+}
+
+@layer components {
+  .eco-gradient {
+    @apply bg-gradient-to-r from-[#19B85C] to-[#0693E3];
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #19B85C, #0693E3, #8940FF, #FF4DB8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  .header-link {
+    @apply relative px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10 flex items-center gap-2 text-white/90 hover:text-white;
+  }
+  
+  .header-link.active {
+    @apply bg-primary/20 text-primary;
+  }
+  
+  .header-link.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .mask-linear-gradient {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+/* Specific styles for the chat container */
+.chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #19B85C, #0693E3);
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #19B85C 20%, #0693E3 80%);
+}
