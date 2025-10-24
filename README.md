@@ -42,7 +42,7 @@ WastiFY/
 ### Steps
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/GeekLuffy/WastiFY.git
+   git clone (https://github.com/himanshu-2l/WASTIFY)
    cd WastiFY
    ```
 
